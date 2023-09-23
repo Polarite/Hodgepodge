@@ -33,6 +33,7 @@ public class LoadingConfig {
     public boolean enlargePotionArray;
     public boolean fixBibliocraftPackets;
     public boolean fixBibliocraftPathSanitization;
+    public boolean fixChatWrappedColors;
     public boolean fixComponentsPoppingOff;
     public boolean fixContainerPutStacksInSlots;
     public boolean fixDebugBoundingBox;
@@ -111,7 +112,10 @@ public class LoadingConfig {
     public boolean optimizeWorldUpdateLight;
     public boolean preventPickupLoot;
     public boolean removeSpawningMinecartSound;
+    public boolean removeCreativeSearchTab;
 
+    public boolean compactChat;
+    public boolean enhanceNightVision;
     public boolean enableMacosCmdShortcuts;
     public boolean fixFontRendererLinewrapRecursion;
     public boolean removeUpdateChecks;
@@ -208,6 +212,7 @@ public class LoadingConfig {
 
         changeSprintCategory = config.get(Category.TWEAKS.toString(), "changeSprintCategory", true, "Moves the sprint keybind to the movement category").getBoolean();
         fixContainerPutStacksInSlots = config.get(Category.FIXES.toString(), "fixContainerPutStacksInSlots", true, "Prevents crash if server sends container with wrong itemStack size").getBoolean();
+        fixChatWrappedColors = config.get(Category.FIXES.toString(), "fixChatWrappedColors", true, "Fix wrapped chat lines missing colors").getBoolean();
         fixComponentsPoppingOff = config.get(Category.TWEAKS.toString(), "fixComponentsPoppingOff", true, "Fix Project Red components popping off on unloaded chunks").getBoolean();
         fixDebugBoundingBox = config.get(Category.FIXES.toString(), "fixDebugBoundingBox", true, "Fixes the debug hitbox of the player beeing offset").getBoolean();
         fixDimensionChangeHearts = config.get(Category.FIXES.toString(), "fixDimensionChangeHearts", true, "Fix losing bonus hearts on dimension change").getBoolean();
@@ -274,6 +279,8 @@ public class LoadingConfig {
         validatePacketEncodingBeforeSending = config.get(Category.FIXES.toString(), "validatePacketEncodingBeforeSending", true, "Validate vanilla packet encodings before sending in addition to on reception").getBoolean();
         validatePacketEncodingBeforeSendingShouldCrash = config.get(Category.FIXES.toString(), "validatePacketEncodingBeforeSendingShouldCrash", false, "Should the extended packet validation error cause a crash (true) or just print out an error to the log (false)").getBoolean();
 
+        compactChat = config.get(Category.TWEAKS.toString(), "Compact chat", true, "Compacts identical consecutive chat messages together").getBoolean();
+        enhanceNightVision = config.get(Category.TWEAKS.toString(), "enhanceNightVision", false, "Remove the blueish sky tint from night vision").getBoolean();
         hideCrosshairInThirdPerson = config.get(Category.TWEAKS.toString(), "hideCrosshairInThirdPerson", true, "Stops rendering the crosshair when you are playing in third person").getBoolean();
         hideIc2ReactorSlots = config.get(Category.TWEAKS.toString(), "hideIc2ReactorSlots", true, "Prevent IC2's reactor's coolant slots from being accessed by automations if not a fluid reactor").getBoolean();
         hidePotionParticlesFromSelf = config.get(Category.TWEAKS.toString(), "hidePotionParticlesFromSelf", true, "Stops rendering potion particles from yourself").getBoolean();
@@ -297,6 +304,7 @@ public class LoadingConfig {
         preventPickupLoot = config.get(Category.TWEAKS.toString(), "preventPickupLoot", true, "Prevent monsters from picking up loot.").getBoolean();
         enableMacosCmdShortcuts = config.get(Category.TWEAKS.toString(), "enableMacosCmdShortcuts", true, "Use CMD key on MacOS to COPY / INSERT / SELECT in text fields (Chat, NEI, Server IP etc.)").getBoolean();
         removeSpawningMinecartSound = config.get(Category.TWEAKS.toString(), "removeSpawningMinecartSound", true, "Stop playing a sound when spawning a minecart in the world").getBoolean();
+        removeCreativeSearchTab = config.get(Category.FIXES.toString(), "removeCreativeSearchTab", true, "Disable the creative search tab since it can be very laggy in large modpacks").getBoolean();
         removeUpdateChecks = config.get(Category.FIXES.toString(), "removeUpdateChecks", true, "Remove old/stale/outdated update checks.").getBoolean();
         chunkSaveCMEDebug = config.get(Category.DEBUG.toString(), "chunkSaveCMEDebug", false, "Enable chunk save cme debugging code.").getBoolean();
         renderDebug = config.get(Category.DEBUG.toString(), "renderDebug", true, "Enable GL state debug hooks. Will not do anything useful unless mode is changed to nonzero.").getBoolean();
